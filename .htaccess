@@ -1,0 +1,27 @@
+# BEGIN Tatwerat
+
+IndexIgnore *
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+ErrorDocument 404 "<h1 style='color:#c00; text-align:center;'>404 <br> Page Not Found</h1>"
+RewriteRule ^login/redirect=(.*)$  ?page=login&redirect=$1
+RewriteRule ^login  ?page=login
+RewriteRule ^fblogin  ?page=fb-login
+RewriteRule ^logout  ?page=logout
+RewriteRule ^register  ?page=register
+RewriteRule ^logout  ?page=logout
+RewriteRule ^forgot-password  ?page=forgot-password
+RewriteRule ^edit-profile  ?page=edit-profile
+RewriteRule ^edit-profile/id/(.*)$  ?page=edit-profile&id=$1
+#activeUser page
+RewriteRule ^active_user/user_key/(.*)$ ?page=active_user&user_key=$1
+RewriteRule ^active_user/(.*)$ ?page=active_user
+RewriteRule ^active_user ?page=active_user
+#tickets
+RewriteRule ^tickets/create ?page=tickets&do=create
+RewriteRule ^tickets/view/(.*)$ ?page=tickets&do=view&id=$1
+#get-ajax
+RewriteRule ^get-ajax/(.*)$ ?get-ajax=$1
+
+# END Tatwerat
